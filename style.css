@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container{
+    width: 100vh;
+    height: 100vh;
+    background-color: #0c0c10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+h1{
+    margin: 2rem;
+    font-size: 4rem;
+    background: linear-gradient(90deg, #25537bff, #003399ff, #dee2e6ff, #f8f9faff, #2c3143ff, #ffdf00ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+h3, h3>span{
+    font-size: 3rem;
+    background: linear-gradient(90deg, #d9ed92ff, #b5e48cff, #99d98cff, #76c893ff, #52b69aff, #34a0a4ff, #168aadff, #1a759fff, #1e6091ff, #184e77ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
