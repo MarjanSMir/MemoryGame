@@ -47,12 +47,13 @@ let cardArray = [{
         img: 'images/milkshake.png'
     }
 ]
+
 cardArray.sort(() => Math.random() - 0.5)
 let grid = document.getElementById('grid')
 let cardChosen = [];
 let cardChosenId = [];
 let cardsWon = [];
-let j = 0;
+
 
 function pictureBoard() {
     for (var i = 0; i < cardArray.length; i++) {
@@ -85,11 +86,10 @@ function checkmatch() {
     if (cardChosen[0] == cardChosen[1]) {
         console.log('mached');
         cards[cardChosenId[0]].setAttribute('src', 'images/white.png')
-        cards[cardChosenId[1]].setAttribute('src', 'images/white.png')
+        cards[cardChosenId[1]].setAttribute('src', 'images/white.png');
         cards[cardChosenId[0]].removeEventListener('click', flip)
         cards[cardChosenId[1]].removeEventListener('click', flip)
-        let result = document.getElementById('result');
-
+        addScore()
     } else {
         console.log('did not matched')
         cards[cardChosenId[0]].setAttribute('src', 'images/blank.png')
@@ -98,29 +98,27 @@ function checkmatch() {
     cardsWon.push(cardChosen)
     cardChosen=[]
     cardChosenId= []
-    console.log(cardsWon.length)
-
-    if(cardsWon.length == cardArray.length/2){
-        let result = document.getElementById('result');
-        result.innerHTML = j+1;
+}
+let j = 1;
+function addScore(){
+    let result = document.getElementById('result');
+    result.innerHTML = j++;
+    console.log(j)
+    if(j == 7){
+        window.alert('You won!')
+        location.reload();
     }
 }
 
 function flip() {
-    console.log(cardArray)
     let cardId = this.getAttribute('data-id')
     let arrayCard = cardArray[cardId].name
     cardChosen.push(arrayCard)
     cardChosenId.push(cardId)
-    console.log(arrayCard)
-    console.log(cardChosen)
     this.setAttribute('src', cardArray[cardId].img)
     if (cardChosen.length === 2) {
-        setTimeout(checkmatch, 1000)
+        setTimeout(checkmatch, 500)
     } else if (cardChosen.length > 2) {
     }
-
-
-
 
 }
